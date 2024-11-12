@@ -19,8 +19,8 @@ nc_axes <- function(x, variables = NULL, ...) {
 nc_axes.character <- function(x, variables = NULL, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
   
-  nc <- RNetCDF::open.nc(x)
-  on.exit(RNetCDF::close.nc(nc), add  = TRUE)
+  nc <- rnz::open_nz(x, warn = FALSE)
+  on.exit(rnz::close_nz(nc), add  = TRUE)
   nc_axes(nc, variables = variables, ...)
 }
 
@@ -51,7 +51,7 @@ nc_axes.NetCDF <- function(x, variables = NULL, ...) {
 ## note this is a bit weird, but we have to ensure
 ## we work relative to all axes, so use the hidden function nc_axis_var
 nc_axis_var <- function(x, i) {
-  out <- RNetCDF::var.inq.nc(x, i)[c("name", "ndims", "dimids")]
+  out <- rnz::inq_var(x, i)[c("name", "ndims", "dimids")]
   #dimids <- out$dimids
   
   out[sapply(out, is.null)] <- NA

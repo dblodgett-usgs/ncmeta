@@ -28,7 +28,7 @@ we_are_raady <- function() {
 #' searches for and returns variables with the desired attribute.
 #'
 #' @param x open NetCDF object, or character file path or url to be opened with 
-#' RNetCDF::open.nc
+#' rnz::open_nz
 #' @param attribute character the attribute name to search for variables with
 #' @param value character defaults to any only return variables that have the
 #' attribute with the given value
@@ -53,7 +53,7 @@ find_var_by_att <- function(x, attribute, value = ".*", strict = TRUE) {
   
   open_nc <- FALSE
   if (is.character(x)) {
-    x <- RNetCDF::open.nc(x)
+    x <- rnz::open_nz(x, warn = FALSE)
     open_nc <- TRUE
   }
   
@@ -68,7 +68,7 @@ find_var_by_att <- function(x, attribute, value = ".*", strict = TRUE) {
   atts <- atts[atts$name == attribute, ]
   atts <- atts[grepl(value, atts$value), ]
   
-  if (open_nc) RNetCDF::close.nc(x)
+  if (open_nc) rnz::close_nz(x)
   
   return(atts$variable)
 }

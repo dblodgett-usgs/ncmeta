@@ -15,15 +15,15 @@
 nc_grid_mapping_atts <- function(x, data_variable = NULL) UseMethod("nc_grid_mapping_atts")
 
 #' @param x open NetCDF object, character file path or url to be 
-#' opened with RNetCDF::open.nc, or data.frame as returned from ncmeta::nc_atts
+#' opened with rnz::open_nz, or data.frame as returned from ncmeta::nc_atts
 #' 
 #' @param data_variable character variable of interest
 #' 
 #' @name nc_grid_mapping_atts
 #' @export
 nc_grid_mapping_atts.character <- function(x, data_variable = NULL) {
-  nc <- RNetCDF::open.nc(x)
-  on.exit(RNetCDF::close.nc(nc), add  = TRUE) 
+  nc <- rnz::open_nz(x, warn = FALSE)
+  on.exit(rnz::close_nz(nc), add  = TRUE) 
   nc_grid_mapping_atts(nc, data_variable)
 }
 

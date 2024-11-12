@@ -27,10 +27,10 @@ nc_att <- function(x, variable, attribute, ...) {
 #' @importFrom rlang .data
 #' @importFrom stats setNames
 nc_att.NetCDF <- function(x, variable, attribute, ...) {
-  att_info <- RNetCDF::att.inq.nc(x, variable, attribute)
+  att_info <- rnz::inq_att(x, variable, attribute)
   
-## att <- structure(RNetCDF::att.get.nc(x, variable, attribute), names = att_info$name)
- att <- RNetCDF::att.get.nc(x, variable, attribute)
+## att <- structure(rnz::get_att(x, variable, attribute), names = att_info$name)
+ att <- rnz::get_att(x, variable, attribute)
   tibble::as_tibble(list(id = att_info$id, name = att_info$name, variable = variable, 
                          value = setNames(list(att), att_info$name)))
 
@@ -42,8 +42,8 @@ nc_att.NetCDF <- function(x, variable, attribute, ...) {
 nc_att.character <- function(x, variable, attribute, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
   
-  nc <- RNetCDF::open.nc(x)
-  on.exit(RNetCDF::close.nc(nc), add  = TRUE)
+  nc <- rnz::open_nz(x, warn = FALSE)
+  on.exit(rnz::close_nz(nc), add  = TRUE)
   nc_att(nc, variable, attribute)
 }
 
@@ -120,8 +120,8 @@ nc_atts.NetCDF <- function(x, variable = NULL,  ...) {
 nc_atts.character <- function(x, variable = NULL, ...)  {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
   
-  nc <- RNetCDF::open.nc(x)
-  on.exit(RNetCDF::close.nc(nc), add  = TRUE)
+  nc <- rnz::open_nz(x, warn = FALSE)
+  on.exit(rnz::close_nz(nc), add  = TRUE)
   nc_atts(nc, variable = variable)
 }
 

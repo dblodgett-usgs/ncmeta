@@ -3,7 +3,7 @@
 f <- raadtools::sstfiles()$fullname[1:100]
 #l <- purrr::map(f, ncmeta::nc_meta)
 
-x <- RNetCDF::open.nc(f[1])
+x <- rnz::open_nz(f[1], warn = FALSE)
 library(ncmeta)
 library(rbenchmark)
 vars <- nc_vars(x)

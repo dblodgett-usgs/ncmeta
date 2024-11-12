@@ -33,10 +33,9 @@ nc_inq <- function(x, ...) {
 }
 #' @name nc_inq
 #' @export
-#' @importFrom RNetCDF file.inq.nc
 #' @importFrom tibble as_tibble
 nc_inq.NetCDF <- function(x, ...) {
-    tibble::as_tibble(RNetCDF::file.inq.nc(x)) 
+    tibble::as_tibble(rnz::inq_nz_source(x)) 
 }
 #' @name nc_inq
 #' @export
@@ -45,8 +44,8 @@ nc_inq.character <- function(x, ...) {
  ifun <- function(x) { 
    if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
    
-    nc <- RNetCDF::open.nc(x)
-    on.exit(RNetCDF::close.nc(nc), add  = TRUE)
+    nc <- rnz::open_nz(x, warn = FALSE)
+    on.exit(rnz::close_nz(nc), add  = TRUE)
     nc_inq(nc)
  }
  out <- dplyr::bind_rows( lapply(x, ifun), .id = "filename")

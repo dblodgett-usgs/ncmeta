@@ -13,8 +13,8 @@ files <- raadfiles:::get_raw_raad_filenames() %>%
 # 4   nc4
 
 read_and_churn <- function(x) {
-  #nc <- RNetCDF::open.nc(x)
-  #on.exit(RNetCDF::close.nc(nc))
+  #nc <- rnz::open_nz(x, warn = FALSE)
+  #on.exit(rnz::close_nz(nc))
   #RNetCDF::print.nc(nc)
   ncmeta::nc_meta(x)
   

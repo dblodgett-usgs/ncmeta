@@ -2,7 +2,7 @@ context("nc_coord_var")
 
 f <- system.file("extdata", "S2008001.L3m_DAY_CHL_chlor_a_9km.nc", package = "ncmeta")
 
-nc <- RNetCDF::open.nc(f)
+nc <- rnz::open_nz(f, warn = FALSE)
 
 test_that("nc_coord_var brings back expected content for one variable", {
   expect_equivalent(nc_coord_var(f, "chlor_a"), 
@@ -32,7 +32,7 @@ test_that("nc_coord_vars brings back expected content for sample", {
   
 f <- system.file("extdata", "guam.nc", package = "ncmeta")
 
-nc <- RNetCDF::open.nc(f)
+nc <- rnz::open_nz(f, warn = FALSE)
 
 test_that("nc_coord_var brings back expected content for one variable", {
   expect_equivalent(nc_coord_var(f, "RAINNC_present"), 

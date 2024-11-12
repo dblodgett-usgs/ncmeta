@@ -38,8 +38,8 @@ nc_coord_var <- function(x, variable = NULL, ...) UseMethod("nc_coord_var")
 nc_coord_var.character <- function(x, variable = NULL, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
   
-  nc <- RNetCDF::open.nc(x)
-  on.exit(RNetCDF::close.nc(nc), add  = TRUE)
+  nc <- rnz::open_nz(x, warn = FALSE)
+  on.exit(rnz::close_nz(nc), add  = TRUE)
   nc_coord_var_call(nc_dims(nc), nc_vars(nc), nc_atts(nc), nc_axes(x), variable)
 }
 

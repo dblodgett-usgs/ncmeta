@@ -17,7 +17,7 @@ nc_grid_mapping_atts(x, data_variable = NULL)
 }
 \arguments{
 \item{x}{open NetCDF object, character file path or url to be
-opened with RNetCDF::open.nc, or data.frame as returned from ncmeta::nc_atts}
+opened with rnz::open_nz, or data.frame as returned from ncmeta::nc_atts}
 
 \item{data_variable}{character variable of interest}
 }

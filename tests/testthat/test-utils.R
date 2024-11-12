@@ -16,7 +16,7 @@ test_that("get_var_by_att", {
   expect_true(length(ncmeta:::find_var_by_att(
     nc, "units", "mm/day", strict = TRUE)) == 1)
 
-  nc <- RNetCDF::open.nc(nc)
+  nc <- rnz::open_nz(nc, warn = FALSE)
 
   expect_true(ncmeta:::find_var_by_att(nc, "coordinates") == "prcp")
 

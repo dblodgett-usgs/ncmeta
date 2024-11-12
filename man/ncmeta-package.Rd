@@ -53,6 +53,7 @@ Other contributors:
   \item Ben Raymond [contributor]
   \item David Blodgett [contributor]
   \item Milton Woods [contributor]
+  \item Patrick Van Laake [contributor]
 }
 
 }

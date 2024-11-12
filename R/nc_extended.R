@@ -18,8 +18,8 @@ nc_extended <- function(x, ...)  {
 nc_extended.character <- function(x, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
   if (file.exists(x)) x <- normalizePath(x)
-  nc <- RNetCDF::open.nc(x)
-  on.exit(RNetCDF::close.nc(nc), add  = TRUE)
+  nc <- rnz::open_nz(x, warn = FALSE)
+  on.exit(rnz::close_nz(nc), add  = TRUE)
   nc_extended(nc)
 }
 
@@ -34,12 +34,12 @@ nc_extended.NetCDF <- function(x, ...) {
   ## instance for any dimension variable with a "units" attribute and a 
   ## "calendar", if present.
   cftime <- lapply(dims$name, function(v) {
-    units <- try(RNetCDF::att.get.nc(x, v, "units"), silent = TRUE)
+    units <- try(rnz::get_att(x, v, "units"), silent = TRUE)
     if (!inherits(units, "try-error") && nchar(units) >= 8) {
-      cal <- try(RNetCDF::att.get.nc(x, v, "calendar"), silent = TRUE)
+      cal <- try(rnz::get_att(x, v, "calendar"), silent = TRUE)
       if (inherits(cal, "try-error")) cal <- "standard"
       try({
-        cft <- CFtime::CFtime(units, cal, as.vector(RNetCDF::var.get.nc(x, v)))
+        cft <- CFtime::CFtime(units, cal, as.vector(rnz::get_var(x, v)))
         return(cft)
       }, silent = TRUE)
     }
@@ -56,6 +56,6 @@ nc_extended.NetCDF <- function(x, ...) {
 #' @export
 nc_extended.ncdf4 <- function(x, ...) {
   ## we don't support ncdf4 so pass to RNetCDF
-  nc_extended(RNetCDF::open.nc(x$filename))
+  nc_extended(rnz::open_nz(x$filename, warn = FALSE))
 }
 

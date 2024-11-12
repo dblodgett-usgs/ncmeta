@@ -26,7 +26,7 @@ test_that("nc_grid_mapping_atts", {
   
   expect_is(nc_grid_mapping_atts(ncmeta::nc_atts(nc)), "data.frame")
   
-  expect_is(nc_grid_mapping_atts(RNetCDF::open.nc(nc)), "data.frame")
+  expect_is(nc_grid_mapping_atts(rnz::open_nz(nc, warn = FALSE)), "data.frame")
   
   gm2 <- nc_grid_mapping_atts(nc, data_variable = "prcp")
   
