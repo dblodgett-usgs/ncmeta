@@ -4,6 +4,7 @@
 \alias{nc_grids}
 \alias{nc_grids.character}
 \alias{nc_grids.NetCDF}
+\alias{nc_grids.ZarrGroup}
 \alias{nc_grids.tidync}
 \title{NetCDF grids}
 \usage{
@@ -12,6 +13,8 @@ nc_grids(x, ...)
 \method{nc_grids}{character}(x, ...)
 
 \method{nc_grids}{NetCDF}(x, ...)
+
+\method{nc_grids}{ZarrGroup}(x, ...)
 
 \method{nc_grids}{tidync}(x, ...)
 }

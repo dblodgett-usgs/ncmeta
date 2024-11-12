@@ -28,3 +28,6 @@ nc_axis.NetCDF <- function(x, i) {
   nc_axes(x) %>% dplyr::filter(.data$axis == i)
 }
 
+#' @name nc_axis
+#' @export
+nc_axis.ZarrGroup <- nc_axis.NetCDF

@@ -29,6 +29,11 @@ nc_vars.NetCDF <- function(x, ...) {
   if (nvars  < 1) return(tibble::tibble())
   nc_vars_internal(x, nvars)
 }
+
+#' @name nc_vars
+#' @export
+nc_vars.ZarrGroup <- nc_vars.NetCDF
+
 nc_vars_internal <- function(x, nvars) {
   dplyr::bind_rows(lapply(seq_len(nvars), function(i) nc_var(x, i-1))) %>% 
     dplyr::distinct(.data$id, .data$name, .data$type, .data$ndims, .data$natts)

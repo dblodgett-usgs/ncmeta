@@ -36,6 +36,9 @@ nc_grids.NetCDF <- function(x, ...) {
   nc_grids_dimvar(nc_dims(x), nc_vars(x), nc_axes(x))
 }
 
+#' @name nc_grids
+#' @export
+nc_grids.ZarrGroup <- nc_grids.NetCDF
 
 # nc_vars(f)  ## should be distinct
 # nc_axes(f)  ## all of them 

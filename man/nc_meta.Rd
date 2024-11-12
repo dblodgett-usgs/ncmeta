@@ -3,12 +3,15 @@
 \name{nc_meta}
 \alias{nc_meta}
 \alias{nc_meta.NetCDF}
+\alias{nc_meta.ZarrGroup}
 \alias{nc_meta.character}
 \title{Top level NetCDF metadata.}
 \usage{
 nc_meta(x, ...)
 
 \method{nc_meta}{NetCDF}(x, ...)
+
+\method{nc_meta}{ZarrGroup}(x, ...)
 
 \method{nc_meta}{character}(x, ...)
 }

@@ -54,6 +54,10 @@ nc_extended.NetCDF <- function(x, ...) {
 
 #' @name nc_extended
 #' @export
+nc_extended.ZarrGroup <- nc_extended.NetCDF
+
+#' @name nc_extended
+#' @export
 nc_extended.ncdf4 <- function(x, ...) {
   ## we don't support ncdf4 so pass to RNetCDF
   nc_extended(rnz::open_nz(x$filename, warn = FALSE))

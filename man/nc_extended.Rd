@@ -4,6 +4,7 @@
 \alias{nc_extended}
 \alias{nc_extended.character}
 \alias{nc_extended.NetCDF}
+\alias{nc_extended.ZarrGroup}
 \alias{nc_extended.ncdf4}
 \title{NetCDF extended dimension attributes}
 \usage{
@@ -12,6 +13,8 @@ nc_extended(x, ...)
 \method{nc_extended}{character}(x, ...)
 
 \method{nc_extended}{NetCDF}(x, ...)
+
+\method{nc_extended}{ZarrGroup}(x, ...)
 
 \method{nc_extended}{ncdf4}(x, ...)
 }

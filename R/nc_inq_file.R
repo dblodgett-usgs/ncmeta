@@ -37,6 +37,11 @@ nc_inq <- function(x, ...) {
 nc_inq.NetCDF <- function(x, ...) {
     tibble::as_tibble(rnz::inq_nz_source(x)) 
 }
+
+#' @name nc_inq
+#' @export
+nc_inq.ZarrGroup <- nc_inq.NetCDF
+
 #' @name nc_inq
 #' @export
 #' @importFrom dplyr bind_rows

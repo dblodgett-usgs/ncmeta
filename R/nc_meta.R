@@ -57,6 +57,10 @@ nc_meta.NetCDF <- function(x, ...) {
 
 #' @name nc_meta
 #' @export
+nc_meta.ZarrGroup <- nc_meta.NetCDF
+
+#' @name nc_meta
+#' @export
 nc_meta.character <- function(x, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
 

@@ -26,6 +26,11 @@ nc_dim.character <- function(x, i, ...) {
 nc_dim.NetCDF <- function(x, i, ...) {
   tibble::as_tibble(rnz::inq_dim(x, i))
 }
+
+#'@name nc_dim
+#'@export
+nc_dim.ZarrGroup <- nc_dim.NetCDF
+
 #'@name nc_dim
 #'@export
 nc_dim.ncdf4 <- function(x, i, ...) {

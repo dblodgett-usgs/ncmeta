@@ -4,6 +4,7 @@
 \alias{nc_axes}
 \alias{nc_axes.character}
 \alias{nc_axes.NetCDF}
+\alias{nc_axes.ZarrGroup}
 \title{NetCDF axes}
 \usage{
 nc_axes(x, variables = NULL, ...)
@@ -11,6 +12,8 @@ nc_axes(x, variables = NULL, ...)
 \method{nc_axes}{character}(x, variables = NULL, ...)
 
 \method{nc_axes}{NetCDF}(x, variables = NULL, ...)
+
+\method{nc_axes}{ZarrGroup}(x, variables = NULL, ...)
 }
 \arguments{
 \item{x}{NetCDF source}

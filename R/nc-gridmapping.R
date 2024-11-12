@@ -35,6 +35,10 @@ nc_grid_mapping_atts.NetCDF <- function(x, data_variable = NULL) {
 
 #' @name nc_grid_mapping_atts
 #' @export
+nc_grid_mapping_atts.ZarrGroup <- nc_grid_mapping_atts.NetCDF
+
+#' @name nc_grid_mapping_atts
+#' @export
 nc_grid_mapping_atts.data.frame <- function(x, data_variable = NULL) {
   
   gm_att <- "grid_mapping"

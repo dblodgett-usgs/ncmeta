@@ -38,6 +38,10 @@ nc_att.NetCDF <- function(x, variable, attribute, ...) {
 
 #' @name nc_att
 #' @export 
+nc_att.ZarrGroup <- nc_att.NetCDF
+
+#' @name nc_att
+#' @export 
 #' @importFrom tibble tibble
 nc_att.character <- function(x, variable, attribute, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
@@ -112,6 +116,10 @@ nc_atts.NetCDF <- function(x, variable = NULL,  ...) {
    }
    out
 }
+
+#' @name nc_atts
+#' @export
+nc_atts.ZarrGroup <- nc_atts.NetCDF
 
 #varfun <- function(v) dplyr::bind_rows(lapply(seq_len(v$natts), function(iatt) nc_att(x, v$name, iatt - 1))))
 

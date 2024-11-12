@@ -4,6 +4,7 @@
 \alias{nc_coord_var}
 \alias{nc_coord_var.character}
 \alias{nc_coord_var.NetCDF}
+\alias{nc_coord_var.ZarrGroup}
 \title{Get Coordinate Variables for Given Variable}
 \usage{
 nc_coord_var(x, variable = NULL, ...)
@@ -11,6 +12,8 @@ nc_coord_var(x, variable = NULL, ...)
 \method{nc_coord_var}{character}(x, variable = NULL, ...)
 
 \method{nc_coord_var}{NetCDF}(x, variable = NULL, ...)
+
+\method{nc_coord_var}{ZarrGroup}(x, variable = NULL, ...)
 }
 \arguments{
 \item{x}{NetCDF source}

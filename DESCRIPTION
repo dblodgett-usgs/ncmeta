@@ -26,6 +26,7 @@ Imports:
     tidyr,
     CFtime,
     rnz
+Remotes: doi-usgs/rnz
 Suggests: testthat,
     covr
 Roxygen: list(markdown = TRUE)

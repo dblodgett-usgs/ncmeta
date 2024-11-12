@@ -3,12 +3,15 @@
 \name{nc_att}
 \alias{nc_att}
 \alias{nc_att.NetCDF}
+\alias{nc_att.ZarrGroup}
 \alias{nc_att.character}
 \title{NetCDF attributes}
 \usage{
 nc_att(x, variable, attribute, ...)
 
 \method{nc_att}{NetCDF}(x, variable, attribute, ...)
+
+\method{nc_att}{ZarrGroup}(x, variable, attribute, ...)
 
 \method{nc_att}{character}(x, variable, attribute, ...)
 }

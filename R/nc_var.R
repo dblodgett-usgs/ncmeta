@@ -39,3 +39,7 @@ nc_var.NetCDF <- function(x, i) {
   tibble::as_tibble_row(out)
 }
 
+#'@name nc_var
+#'@export
+nc_var.ZarrGroup <- nc_var.NetCDF
+

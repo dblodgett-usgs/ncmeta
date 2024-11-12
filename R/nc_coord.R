@@ -49,6 +49,10 @@ nc_coord_var.NetCDF <- function(x, variable = NULL, ...) {
   nc_coord_var_call(nc_dims(x), nc_vars(x), nc_atts(x), nc_axes(x), variable)
 }
 
+#' @name nc_coord_var
+#' @export
+nc_coord_var.ZarrGroup <- nc_coord_var.NetCDF
+
 #' @importFrom dplyr bind_rows
 nc_coord_var_call <- function(dim, var, att, axe, variable) {
   if (is.null(var) || (nrow(var) < 1 & nrow(dim) < 1)) return(tibble::tibble())

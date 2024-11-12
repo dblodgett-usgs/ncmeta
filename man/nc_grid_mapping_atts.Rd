@@ -4,6 +4,7 @@
 \alias{nc_grid_mapping_atts}
 \alias{nc_grid_mapping_atts.character}
 \alias{nc_grid_mapping_atts.NetCDF}
+\alias{nc_grid_mapping_atts.ZarrGroup}
 \alias{nc_grid_mapping_atts.data.frame}
 \title{Get Grid Mapping}
 \usage{
@@ -12,6 +13,8 @@ nc_grid_mapping_atts(x, data_variable = NULL)
 \method{nc_grid_mapping_atts}{character}(x, data_variable = NULL)
 
 \method{nc_grid_mapping_atts}{NetCDF}(x, data_variable = NULL)
+
+\method{nc_grid_mapping_atts}{ZarrGroup}(x, data_variable = NULL)
 
 \method{nc_grid_mapping_atts}{data.frame}(x, data_variable = NULL)
 }

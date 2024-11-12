@@ -3,12 +3,15 @@
 \name{nc_inq}
 \alias{nc_inq}
 \alias{nc_inq.NetCDF}
+\alias{nc_inq.ZarrGroup}
 \alias{nc_inq.character}
 \title{File info}
 \usage{
 nc_inq(x, ...)
 
 \method{nc_inq}{NetCDF}(x, ...)
+
+\method{nc_inq}{ZarrGroup}(x, ...)
 
 \method{nc_inq}{character}(x, ...)
 }

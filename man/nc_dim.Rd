@@ -4,6 +4,7 @@
 \alias{nc_dim}
 \alias{nc_dim.character}
 \alias{nc_dim.NetCDF}
+\alias{nc_dim.ZarrGroup}
 \alias{nc_dim.ncdf4}
 \title{NetCDF variables
 Obtain information about a single dimension by index.}
@@ -13,6 +14,8 @@ nc_dim(x, i, ...)
 \method{nc_dim}{character}(x, i, ...)
 
 \method{nc_dim}{NetCDF}(x, i, ...)
+
+\method{nc_dim}{ZarrGroup}(x, i, ...)
 
 \method{nc_dim}{ncdf4}(x, i, ...)
 }
