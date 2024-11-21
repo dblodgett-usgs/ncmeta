@@ -65,7 +65,7 @@ nc_meta.character <- function(x, ...) {
   if (nchar(x) < 1) stop("NetCDF source cannot be empty string")
 
   nc <- rnz::open_nz(x, warn = FALSE)
-  on.exit(rnz::close_nz(nc), add  = TRUE)
+  on.exit(try(rnz::close_nz(nc), silent = TRUE), add  = TRUE)
   out <- nc_meta(nc)
   out$source <- nc_sources(x)
   out
